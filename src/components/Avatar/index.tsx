@@ -1,6 +1,6 @@
 import * as S from './styles'
 
-const ProfileAvatar = () => {
+const Avatar = () => {
    return (
       <div>
          
@@ -8,4 +8,4 @@ const ProfileAvatar = () => {
    )
 }
 
-export default ProfileAvatar
+export default Avatar

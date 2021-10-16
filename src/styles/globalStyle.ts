@@ -10,7 +10,7 @@ const GlobalStyle = createGlobalStyle`
    }
 
    html {
-      font-family: 'Mulish';
+      font-family: 'Mulish', sans-serif;
    }
 `
 
