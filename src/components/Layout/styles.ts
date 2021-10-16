@@ -15,7 +15,6 @@ export const Main = styled.main`
    margin: 0 auto;
    width: 100%;
    padding: 1rem;
-   display: flex;
    padding-top: 10rem;
 
    @media screen and (max-width: 991px) {

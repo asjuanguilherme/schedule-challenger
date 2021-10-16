@@ -34,3 +34,7 @@ export const getExtenseDate = (date = null, large = true) :string => {
 
    return `Hoje - ${day} de ${getMonthName(month)} de ${year} - ${hours}:${minutes}`
 }
+
+export const getFormatedDate = () => {
+   
+}
