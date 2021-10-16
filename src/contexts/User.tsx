@@ -2,10 +2,10 @@ import { useState, useEffect, createContext } from 'react'
 import { getProfile } from '../services/profile'
 import { Profile } from '../types/Profile'
 
-export const UserContext = createContext({})
+export const UserContext = createContext<Profile>({})
 
 export const UserProvider = ({children}: any) => {
-   const [userData, setuserData] = useState<Profile | {}>({})
+   const [userData, setuserData] = useState<Profile>({})
 
    useEffect(() => {
      getProfile().then( data => setuserData(data))

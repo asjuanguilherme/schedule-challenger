@@ -1,15 +1,14 @@
-import { useContext } from 'react'
+import { useContext, useEffect, useState } from 'react'
 import * as S from './styles'
 import { UserContext } from '../../contexts/User'
 import { getElapsedTime, getTimeText } from '../../helpers/time'
+import Logo from '../../assets/images/Logo-light.svg'
+import { getExtenseDate } from '../../helpers/date'
 
 const Profile = () => {
    const user = useContext(UserContext)
-
-   console.log(user)
-
-   const companyTime = getElapsedTime(user.created_at)
-
+   const companyTime = getElapsedTime(user.created_at!)
+   
    const timeText = getTimeText({
       years: companyTime.years,
       months: companyTime.months,
@@ -18,9 +17,25 @@ const Profile = () => {
       minutes: 0,
       seconds: 0,
    })
+
+   const [actualTime, setActualTime] = useState(getExtenseDate())
+   const [mobileActualTime, setMobileActualTime] = useState(getExtenseDate())
    
+   useEffect(() => {
+      setInterval(() => {
+         setActualTime(getExtenseDate())
+         setMobileActualTime(getExtenseDate(null, false))
+      }, 1000)
+   })
+
    return (
       <S.Wrapper>
+         <S.Header>
+            <S.Logo src={Logo} />
+            <S.Time>{ actualTime }</S.Time>
+            <S.TimeMobile>{ mobileActualTime }</S.TimeMobile>
+         </S.Header>
+
          <S.ProfileUser>
             <S.UserAvatar src={user.picture} />
             
@@ -31,7 +46,7 @@ const Profile = () => {
          </S.ProfileUser>
 
          <S.ProfileDetails>
-            <span>Altura: {user.height/100}</span>
+            <span>Altura: {(user.height!/100).toString().replace('.', ',')}m</span>
             <span>Manequim: {user.size}</span>
             <span>Calçado: {user.shoe}</span>
          </S.ProfileDetails>
@@ -39,7 +54,6 @@ const Profile = () => {
          <S.CompanyTime>
             [] Tempo na Clooser: {timeText}
          </S.CompanyTime>
-         
       </S.Wrapper>
    )
 }

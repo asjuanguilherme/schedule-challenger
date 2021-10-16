@@ -1,9 +1,10 @@
 import * as S from './styles'
 import { useContext } from 'react'
 import { UserContext } from '../../contexts/User'
+import { Profile } from '../../types/Profile'
 
 const Home = () => {
-   const user = useContext(UserContext) 
+   const user: Profile = useContext(UserContext) 
 
    return (
       <>

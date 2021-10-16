@@ -16,5 +16,23 @@ export const Main = styled.main`
    width: 100%;
    padding: 1rem;
    display: flex;
-   align-items: center;
+   padding-top: 10rem;
+
+   @media screen and (max-width: 991px) {
+      padding-top: 5rem;
+   }
+
+   @media screen and (max-width: 480px) {
+      padding-top: 2em;
+   }
+`
+
+export const Logo = styled.img`
+   position: absolute;
+   right: 1.5rem;
+   top: 1.5rem;
+
+   @media screen and (max-width: 991px) {
+      display: none;
+   }
 `
