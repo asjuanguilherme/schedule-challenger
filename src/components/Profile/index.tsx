@@ -1,8 +1,8 @@
 import { useContext, useEffect, useState } from 'react'
 import * as S from './styles'
 import { UserContext } from '../../contexts/User'
-import { getElapsedTime, getTimeText } from '../../helpers/time'
 import Logo from '../../assets/images/Logo-light.svg'
+import { getElapsedTime, getTimeText } from '../../helpers/time'
 import { getExtenseDate } from '../../helpers/date'
 
 const Profile = () => {
@@ -40,7 +40,9 @@ const Profile = () => {
             <S.UserAvatar src={user.picture} />
             
             <S.UserTitle>
-               <S.Name>{`${user.first_name} ${user.last_name}`}</S.Name>
+               <S.Name>
+                  {`${user.first_name} ${user.last_name}`} <S.ValidatedUser/>
+               </S.Name>
                <S.Role>{user.role}</S.Role>
             </S.UserTitle>
          </S.ProfileUser>
@@ -52,7 +54,7 @@ const Profile = () => {
          </S.ProfileDetails>
 
          <S.CompanyTime>
-            [] Tempo na Clooser: {timeText}
+            <S.ClockIcon/> Tempo na Clooser: {timeText}
          </S.CompanyTime>
       </S.Wrapper>
    )

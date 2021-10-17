@@ -1,16 +1,24 @@
 import * as S from './styles'
-import { useContext } from 'react'
-import { UserContext } from '../../contexts/User'
-import { Profile } from '../../types/Profile'
+import { useState, useEffect } from 'react'
 import Saudation from './Saudation'
 import JobsDataEntry from './JobsDataEntry'
+import JobsListing from './JobsListing'
+import jobsDataMockup from '../../data/jobs'
+import { Job } from '../../types/Job'
+
 
 const Home = () => {
+   const [jobsList, setJobsList] = useState<Job[]>(jobsDataMockup)
+
+   const insertToList = (job: Job) => {
+      setJobsList( state => [...state!, job])
+   }
+
    return (
       <>
          <Saudation />
-         <JobsDataEntry />
-         {/* <JobsDataListing /> */}
+         <JobsDataEntry insertToList={insertToList} />
+         <JobsListing jobsList={jobsList} />
       </>
    )
 }

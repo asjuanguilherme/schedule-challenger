@@ -1,6 +1,8 @@
 type Theme = {
    colors: {
       primary: string;
+      primaryDark: string;
+      primaryLight: string;
       secondary: string;
       background: string;
       text: string;

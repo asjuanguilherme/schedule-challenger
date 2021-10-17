@@ -1,10 +1,26 @@
+import { Component, ReactComponentElement } from 'react'
 import * as S from './styles'
 
-const Button = () => {
+type Props = {
+   label: string;
+   prefix: any;
+   onClick: () => void;
+}
+
+const Button = ({label, prefix, onClick}: Props) => {
    return (
-      <div>
-         
-      </div>
+      <S.Button onClick={onClick}>
+         { prefix &&
+            <S.Prefix>
+               {prefix}
+            </S.Prefix>
+         }
+         { label &&
+            <S.Label>
+               {label}
+            </S.Label>
+         }
+      </S.Button>
    )
 }
 

@@ -1,4 +1,6 @@
 import styled from 'styled-components'
+import { HiBadgeCheck } from 'react-icons/hi'
+import { FiClock } from 'react-icons/fi'
 
 export const Wrapper = styled.div`
    user-select: none;
@@ -110,6 +112,12 @@ export const Name = styled.h2`
    }
 `
 
+export const ValidatedUser = styled(HiBadgeCheck)`
+   fill: ${ props => props.theme.colors.success };
+   vertical-align: middle;
+   margin-top: -.3rem;
+`
+
 export const Role = styled.span`
    margin-bottom: 1rem;
    font-style: italic;
@@ -136,7 +144,13 @@ export const ProfileDetails = styled.div`
 `
 
 export const CompanyTime = styled.div`
+
    @media screen and (max-width: 991px) {
       display: none;
    }
+`
+
+export const ClockIcon = styled(FiClock)`
+   margin-bottom: -.2rem;
+   font-size: 1.1em
 `

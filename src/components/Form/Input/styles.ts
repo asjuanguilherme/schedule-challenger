@@ -15,9 +15,10 @@ const SuccessStyle = css`
 
 export const Input = styled.input<{error: string | null, success: boolean;}>`
    width: 100%;
-   background-color: #F2F2F2;
    height: 2rem;
    padding: 0 1rem;
+   
+   background-color: #F2F2F2;
    border-radius: .3rem;
    font-family: 'Mulish', sans-serif;
    font-size: .875rem;

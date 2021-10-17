@@ -5,13 +5,18 @@ export const Wrapper = styled.div`
    min-height: 100vh;
    width: 100%;
 
+   *::selection {
+      background-color: ${ props => props.theme.colors.primary };
+      color: white;
+   }
+
    @media screen and (max-width: 991px) {
       display: block;
    }
 `
 
 export const Main = styled.main`
-   max-width: 960px;
+   max-width: 768px;
    margin: 0 auto;
    width: 100%;
    padding: 1rem;
@@ -27,6 +32,7 @@ export const Main = styled.main`
 `
 
 export const Logo = styled.img`
+   user-select: none;
    position: absolute;
    right: 1.5rem;
    top: 1.5rem;
