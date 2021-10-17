@@ -1,4 +1,3 @@
-import * as S from './styles'
 import { useState, useEffect } from 'react'
 import Saudation from './Saudation'
 import JobsDataEntry from './JobsDataEntry'
@@ -8,16 +7,22 @@ import { Job } from '../../types/Job'
 
 
 const Home = () => {
-   const [jobsList, setJobsList] = useState<Job[]>(jobsDataMockup)
+   const jobsListStored = JSON.parse(localStorage.getItem('JOBS_LIST') || JSON.stringify(jobsDataMockup))
+   
+   const [jobsList, setJobsList] = useState<Job[]>(jobsListStored)
 
-   const insertToList = (job: Job) => {
+   useEffect(() => {
+      localStorage.setItem('JOBS_LIST', JSON.stringify(jobsList))
+   }, [jobsList])
+
+   const insertJobToList = (job: Job) => {
       setJobsList( state => [...state!, job])
    }
 
    return (
       <>
          <Saudation />
-         <JobsDataEntry insertToList={insertToList} />
+         <JobsDataEntry insertJobToList={insertJobToList} />
          <JobsListing jobsList={jobsList} />
       </>
    )

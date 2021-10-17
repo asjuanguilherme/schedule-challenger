@@ -5,8 +5,7 @@ import { FiClock } from 'react-icons/fi'
 export const Wrapper = styled.div`
    user-select: none;
    width: 100%;
-   height: 100%;
-   min-height: 100vh;
+   height: 100vh;
    max-width: 500px;
 
    background-color: ${props => props.theme.colors.primary};

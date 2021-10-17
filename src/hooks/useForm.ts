@@ -13,7 +13,6 @@ export const useForm = (options: Options) => {
       if( value.length || !options.required ) {
          return false
       }
-      
       setSuccess(false)
       setError('Preencha esse campo.')
       return true

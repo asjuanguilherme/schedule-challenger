@@ -1,6 +1,6 @@
 import styled from 'styled-components'
 
-export const Wrapper = styled.div`
+export const FormWrapper = styled.form`
    display: block;
    width: 100%;
    margin-top: 2.5rem;

@@ -20,7 +20,7 @@ const Profile = () => {
 
    const [actualTime, setActualTime] = useState(getExtenseDate())
    const [mobileActualTime, setMobileActualTime] = useState(getExtenseDate())
-   
+
    useEffect(() => {
       setInterval(() => {
          setActualTime(getExtenseDate())
@@ -35,7 +35,7 @@ const Profile = () => {
             <S.Time>{ actualTime }</S.Time>
             <S.TimeMobile>{ mobileActualTime }</S.TimeMobile>
          </S.Header>
-
+         
          <S.ProfileUser>
             <S.UserAvatar src={user.picture} />
             

@@ -2,22 +2,22 @@ import * as S from './styles'
 import { getScheduleJob, getJobStatus } from '../../../helpers/job'
 import { Job } from '../../../types/Job'
 
-// jobs.sort( (a, b) => {
-//    const prevDate = new Date(a.start).getTime()
-//    const currDate = new Date(b.start).getTime()
-
-//    return prevDate - currDate
-// })
-
 interface Props {
    jobsList: Job[];
 }
 
 const JobsListing = ({jobsList}: Props) => {
 
+   jobsList.sort( (a, b) => {
+      const prevDate = new Date(a.start).getTime()
+      const currDate = new Date(b.start).getTime()
+   
+      return prevDate - currDate
+   })
+
    const renderJobs = () => (
-      jobsList.map( job => (
-         <S.JobsItem>
+      jobsList.map( (job, index) => (
+         <S.JobsItem key={index} >
             <S.Legend variant={getJobStatus(job.start)} />
             { getScheduleJob(job.start, job.end) }
          </S.JobsItem>

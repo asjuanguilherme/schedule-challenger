@@ -1,4 +1,6 @@
 import { getMonthName } from '../helpers/date'
+import { Job } from '../types/Job'
+import { getIsoDate } from './date'
 
 export const getScheduleJob = (start: string, end: string) => {
    const startDate = new Date(start)
@@ -31,4 +33,23 @@ export const getJobStatus = (start: string) => {
       return `danger`
    
    return `success`
+}
+
+type CreateJob = {
+   year: number;
+   month: number;
+   day: number;
+   startHour: number;
+   startMinutes: number;
+   endHour: number;
+   endMinutes: number;
+}
+
+export const createJob = (options: CreateJob ) : Job => {
+   const { year, month, day, startHour, startMinutes, endHour, endMinutes } = options
+   
+   return {
+      start: getIsoDate(year, month, day, startHour, startMinutes),
+      end: getIsoDate(year, month, day, endHour, endMinutes)
+   }
 }

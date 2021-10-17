@@ -1,6 +1,7 @@
 import styled, { css } from 'styled-components'
 
 export const BoardWrapper = styled.div`
+   font-size: .875rem;
    margin-top: 2rem;
    background-color: ${ props => props.theme.colors.primary };
    color: white;
@@ -116,7 +117,7 @@ export const JobsList = styled.ul`
    list-style: none;
    display: grid;
    grid-template-columns: 1fr 1fr 1fr;
-   gap: .5rem 1.5rem;
+   gap: .8rem 1.5rem;
 
    @media screen and (max-width: 768px) {
       grid-template-columns: 1fr 1fr;

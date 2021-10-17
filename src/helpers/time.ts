@@ -39,8 +39,7 @@ export const getElapsedTime= (date: string ): DifferenceTimeObject => {
 
 export const getTimeText = ( time: DifferenceTimeObject ) => {
    const { years, months, days, minutes, seconds } = time
-   
-   
+      
    let text = ''
    
    if(years) { text += `${years} ${years > 1 ? 'anos' : 'ano'}` }

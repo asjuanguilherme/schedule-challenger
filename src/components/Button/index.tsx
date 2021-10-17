@@ -4,7 +4,7 @@ import * as S from './styles'
 type Props = {
    label: string;
    prefix: any;
-   onClick: () => void;
+   onClick?: () => void;
 }
 
 const Button = ({label, prefix, onClick}: Props) => {
