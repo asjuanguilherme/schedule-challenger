@@ -1,20 +1,18 @@
 import * as S from './styles'
+import * as date from '../../../helpers/date'
 import { useEffect, useState } from 'react'
 import { useForm } from '../../../hooks/useForm'
-import * as date from '../../../helpers/date'
 import { FaCalendar } from 'react-icons/fa'
 import Input from '../../../components/Form/Input'
 import Button from '../../../components/Button'
 import { createJob } from '../../../helpers/job'
 import Select from '../../../components/Form/Select'
-import TimeInput from '../../../components/Form/TimeInput'
 
 interface Props {
    insertJobToList: Function;
 }
 
 const JobsDataEntry = ({insertJobToList}: Props) => {
-
    const dateInput = useForm({required: true})
    const startMinutes = useForm({required: true})
    const startHours = useForm({required: true})
@@ -70,7 +68,9 @@ const JobsDataEntry = ({insertJobToList}: Props) => {
             value={dateInput.value}
             setValue={dateInput.setValue}
          />
-         <TimeInput {...startMinutes} />
+         <S.TimeInput>
+            
+         </S.TimeInput>
          <Button prefix={ <FaCalendar /> } label="Adicionar" />
       </S.FormWrapper>
    </>
