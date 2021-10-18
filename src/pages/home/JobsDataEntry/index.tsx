@@ -23,9 +23,7 @@ const JobsDataEntry = ({insertJobToList, jobsList}: Props) => {
    const checkScheduleConflict = (newJobStart: string, newJobEnd: string) => {
       let isBusy = false
             
-      // console.log(newJobStart, newJobEnd)
       jobsList.forEach( a => {         
-         // console.log(a.start, a.end)
          console.log()
          if(date.isScheduleBusy(a.start, a.end, newJobStart, newJobEnd)) {
             isBusy = true
@@ -85,7 +83,7 @@ const JobsDataEntry = ({insertJobToList, jobsList}: Props) => {
             startHour.setValue('00')
             startMinute.setValue('00')
          } else {
-            alert('Um outro job ocorrerá neste horário. Há menos que seja o naruto, clones das sombras não é uma possibilidade.')
+            alert('Um outro job ocorrerá neste horário. A menos que seja o naruto, clones das sombras não é uma possibilidade.')
          }
       }
    }
@@ -105,7 +103,7 @@ const JobsDataEntry = ({insertJobToList, jobsList}: Props) => {
          />
 
          <div>
-            <S.TimeInput error={null} >
+            <S.TimeInput error={startHour.error || startMinute.error}>
                <Input
                   rounded={false}
                   placeholder="Hora"

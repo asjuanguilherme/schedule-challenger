@@ -1,5 +1,4 @@
 import * as S from './styles'
-import { isScheduleBusy } from '../../../helpers/date'
 import { getScheduleJob, getJobStatus } from '../../../helpers/job'
 import { Job } from '../../../types/Job'
 
@@ -14,6 +13,7 @@ const JobsListing = ({jobsList}: Props) => {
             return(
                <S.JobsItem key={index} >
                   <S.Legend variant={getJobStatus(job.start)} />
+                     <S.Tooltip>Proximo do Inicio</S.Tooltip>
                   { getScheduleJob(job.start, job.end) }
                </S.JobsItem>
             )

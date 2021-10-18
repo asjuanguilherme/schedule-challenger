@@ -12,7 +12,7 @@ export const FormWrapper = styled.form`
    @media screen and (max-width: 640px) {
       grid-template-columns: 1fr;
       grid-row-end: span;
-      gap: 1.5rem;
+      gap: 1rem;
    }
 `
 
