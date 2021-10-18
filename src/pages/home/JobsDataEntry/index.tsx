@@ -79,15 +79,13 @@ const JobsDataEntry = ({insertJobToList, jobsList}: Props) => {
             startMinutes: Number(startMinute.value),
             hours: 1
          })
-
-         console.log(
-            checkScheduleConflict(job.start, job.end)
-         )
          if(!checkScheduleConflict(job.start, job.end)) {
             insertJobToList(job)
             dateInput.setValue('')
             startHour.setValue('00')
             startMinute.setValue('00')
+         } else {
+            alert('Um outro job ocorrerá neste horário. Há menos que seja o naruto, clones das sombras não é uma possibilidade.')
          }
       }
    }
