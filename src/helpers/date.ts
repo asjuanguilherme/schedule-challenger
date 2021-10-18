@@ -32,7 +32,7 @@ export const getExtenseDate = (date = null, large = true) :string => {
    if(!large)
       return `${day} de ${getMonthName(month, false)} de ${year} - ${hours}:${minutes}`
 
-   return `Hoje - ${day} de ${getMonthName(month)} de ${year} - ${hours}:${minutes > 9? minutes : `0${minutes}`}`
+   return `Hoje - ${day} de ${getMonthName(month)} de ${year} - ${hours > 9? hours : `0${hours}`}:${minutes > 9? minutes : `0${minutes}`}`
 }
 
 export const getFormatedDate = (date?: string) => new Date(date!).toISOString().split('T')[0]
