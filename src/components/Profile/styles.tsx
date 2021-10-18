@@ -8,6 +8,10 @@ export const Wrapper = styled.div`
    height: 100vh;
    max-width: 500px;
 
+   position: fixed;
+   left: 0;
+   top: 0;
+
    background-color: ${props => props.theme.colors.primary};
    color: white;
    border-radius: 0 2rem 0 0 ;
@@ -19,6 +23,8 @@ export const Wrapper = styled.div`
       height: auto;
       min-height: unset;
       max-width: unset;
+
+      position: static;
 
       border-radius: 0 0 2rem 0;
       padding: 0 1rem;

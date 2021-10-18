@@ -8,7 +8,9 @@ const LayoutTemplate = ({children}: any) => {
          <S.Logo src={Logo} />
          <Profile />
          <S.Main>
-            { children }
+            <S.Content>
+               { children }
+            </S.Content>
          </S.Main>
       </S.Wrapper>
    )

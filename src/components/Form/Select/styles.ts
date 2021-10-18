@@ -1,10 +1,11 @@
-import styled, { css } from 'styled-components'
+import styled, { css, keyframes } from 'styled-components'
+import { FaExclamationCircle } from 'react-icons/fa'
 
 export const Wrapper = styled.div`
    user-select: none;
    position: relative;
    font-size: .875rem;
-   width: 250px;
+   width: 100%;
 `
 
 const buttonActive = css`
@@ -71,4 +72,27 @@ export const SelectOption = styled.option`
       color: white;
       background-color: ${ props => props.theme.colors.primary };
    }
+`
+
+
+const ErrorAnimation = keyframes`
+   from {
+      transform: translateX(-.875rem);
+      opacity: .3;
+   }
+`
+
+export const Error = styled.span`
+   font-size: .875rem;
+   position: absolute;
+   left: 0;
+   bottom: -1.3rem;
+   color: ${props => props.theme.colors.danger };
+   animation: ${ErrorAnimation} linear .1s;
+`
+
+export const ErrorIcon = styled(FaExclamationCircle)`
+   margin-right: .2rem;
+   margin-bottom: -.1rem;
+   font-size: .8rem;
 `

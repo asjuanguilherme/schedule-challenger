@@ -15,7 +15,15 @@ export const Wrapper = styled.div`
    }
 `
 
-export const Main = styled.main`
+export const Main = styled.div`
+   @media screen and (min-width: 992px) {
+      width: calc(100vw - 524px);
+      max-width: 100%;
+      margin-left: auto;
+   }
+`
+
+export const Content = styled.main`
    max-width: 768px;
    margin: 0 auto;
    width: 100%;

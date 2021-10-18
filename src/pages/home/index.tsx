@@ -22,7 +22,7 @@ const Home = () => {
    return (
       <>
          <Saudation />
-         <JobsDataEntry insertJobToList={insertJobToList} />
+         <JobsDataEntry insertJobToList={insertJobToList} jobsList={jobsList} />
          <JobsListing jobsList={jobsList} />
       </>
    )

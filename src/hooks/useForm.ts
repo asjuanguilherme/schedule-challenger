@@ -9,12 +9,13 @@ export const useForm = (options: Options) => {
    const [error, setError] = useState<null | string>(null)
    const [success, setSuccess] = useState(false)
 
-   const isEmpty = (value: string) => {
-      if( value.length || !options.required ) {
-         return false
+   const isEmpty = () => {
+      if( !options.required && value.length === 0 ) {
+         setSuccess(false)
+         setError('Preencha esse campo.')
+         return true
       }
-      setSuccess(false)
-      setError('Preencha esse campo.')
+
       return true
    }
 

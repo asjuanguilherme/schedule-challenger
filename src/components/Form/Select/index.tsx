@@ -11,6 +11,7 @@ interface Props {
    placeholder: string;
    value: string | null;
    setValue: Function;
+   error: string | null;
 }
 
 const Select = (props: Props) => {
@@ -43,6 +44,13 @@ const Select = (props: Props) => {
          <S.SelectOptions active={opened} onClick={close} >
             {props.options && renderOptions(props.options)}
          </S.SelectOptions>
+            
+         { props.error &&
+            <S.Error>
+               <S.ErrorIcon />
+               { props.error }
+            </S.Error>
+         }
       </S.Wrapper>
    )
 }

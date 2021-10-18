@@ -13,17 +13,20 @@ const SuccessStyle = css`
    box-shadow: 0 0 0 2px ${ props => props.theme.colors.success };
 `
 
-export const Input = styled.input<{error: string | null, success: boolean;}>`
+export const Input = styled.input<{error: string | null, success: boolean, rounded: boolean;}>`
    width: 100%;
    height: 2rem;
    padding: 0 1rem;
    
    background-color: #F2F2F2;
-   border-radius: .3rem;
+
+   ${ props => props.rounded? 'border-radius: .3rem;' : ''}
+
    font-family: 'Mulish', sans-serif;
    font-size: .875rem;
 
    transition: .5s;
+
    ${ props => props.error? ErrorStyle : ''}
    ${ props => props.success? SuccessStyle : '' }
 `

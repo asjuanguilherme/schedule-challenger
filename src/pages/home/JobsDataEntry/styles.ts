@@ -6,7 +6,7 @@ export const FormWrapper = styled.form`
    margin-top: 2.5rem;
 
    display: grid;
-   grid-template-columns: 1fr 1fr 1fr 1fr;
+   grid-template-columns: 1fr 1fr .7fr;
    gap: 1rem;
 
    @media screen and (max-width: 640px) {
@@ -16,8 +16,23 @@ export const FormWrapper = styled.form`
    }
 `
 
-export const TimeInput = styled.div`
+export const TimeInput = styled.div<{error: string | null}>`
    display: grid;
    grid-template-columns: 1fr 1fr;
    gap: .2rem;
+
+   height: fit-content;
+
+   border-radius: .3rem;
+   overflow: hidden;
+
+   ${ props => props.error? 'box-shadow: 0 0 0 1px ${ props => props.theme.colors.danger' : ''};
+`
+
+export const TimeInputError = styled.div`
+   position: absolute;
+   margin-top: .2rem;
+   font-size: .875rem;
+   font-weight: bold;
+   color: ${ props => props.theme.colors.danger };
 `

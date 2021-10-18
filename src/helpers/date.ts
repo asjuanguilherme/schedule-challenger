@@ -32,7 +32,7 @@ export const getExtenseDate = (date = null, large = true) :string => {
    if(!large)
       return `${day} de ${getMonthName(month, false)} de ${year} - ${hours}:${minutes}`
 
-   return `Hoje - ${day} de ${getMonthName(month)} de ${year} - ${hours}:${minutes}`
+   return `Hoje - ${day} de ${getMonthName(month)} de ${year} - ${hours}:${minutes > 9? minutes : `0${minutes}`}`
 }
 
 export const getFormatedDate = (date?: string) => new Date(date!).toISOString().split('T')[0]
@@ -58,12 +58,14 @@ export const isAPastDay = (date: string) => {
 export const isToday = (date: string) => getFormatedDate() === getFormatedDate(date)
 
 export const getIsoDate = (year: number, month: number, day: number, hours: number, minutes: number) => {
-   let monthValue = month > 9 ? month : `0${month}`
-   let dayValue = day > 9 ? day : `0${day}`
-   let hoursValue = hours > 9 ? hours : `0${hours}`
-   let minutesValue = minutes > 9 ? minutes : `0${minutes}`
+   // let monthValue = month > 9 ? month : `0${month}`
+   // let dayValue = day > 9 ? day : `0${day}`
+   // let hoursValue = hours > 9 ? hours : `0${hours}`
+   // let minutesValue = minutes > 9 ? minutes : `0${minutes}`
    
-   return new Date(`${year}-${monthValue}-${dayValue}T${hoursValue}:${minutesValue}`).toISOString()
+   const date = new Date(year, month-1, day, hours, minutes, 0, 0)
+
+   return date.toISOString()
 }
 
 export const getDaysUntilEndOfYear = () => {
@@ -87,4 +89,16 @@ export const getDaysUntilEndOfYear = () => {
    } while(thisYear)
 
    return days
+}
+
+export const isScheduleBusy = (newJobStart: string, newJobEnd: string, registeredJobStart: string, registeredJobEnd: string) => {
+   const newStart = new Date(newJobStart).getTime()
+   const newEnd = new Date(newJobEnd).getTime()
+   const registeredStart = new Date(registeredJobStart).getTime()
+   const registeredEnd = new Date(registeredJobEnd).getTime()
+   
+   if(newStart >= registeredEnd || newEnd <= registeredStart)
+      return false
+   
+   else return true
 }

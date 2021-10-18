@@ -41,15 +41,20 @@ type CreateJob = {
    day: number;
    startHour: number;
    startMinutes: number;
-   endHour: number;
-   endMinutes: number;
+   hours: number;
 }
 
 export const createJob = (options: CreateJob ) : Job => {
-   const { year, month, day, startHour, startMinutes, endHour, endMinutes } = options
-   
+   const { year, month, day, startHour, startMinutes, hours } = options
+
+   const hour = 1000 * 60 * 60 
+   const hoursAmount = hour * hours
+
+   const dateStart = new Date(getIsoDate(year, month, day, startHour, startMinutes)).getTime() 
+   const dateEnd = new Date(getIsoDate(year, month, day, startHour, startMinutes)).getTime() + hoursAmount
+
    return {
-      start: getIsoDate(year, month, day, startHour, startMinutes),
-      end: getIsoDate(year, month, day, endHour, endMinutes)
+      start: new Date(dateStart).toISOString(),
+      end: new Date(dateEnd).toISOString()
    }
 }

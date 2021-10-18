@@ -1,4 +1,5 @@
 import * as S from './styles'
+import { isScheduleBusy } from '../../../helpers/date'
 import { getScheduleJob, getJobStatus } from '../../../helpers/job'
 import { Job } from '../../../types/Job'
 

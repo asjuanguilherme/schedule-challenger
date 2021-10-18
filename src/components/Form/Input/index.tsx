@@ -11,19 +11,17 @@ interface Props {
    error: string | null;
    success: boolean;
    setValue: Function;
-   // onChange?: (event: any) => void;
-   // onBlur?: (event: any) => void;
+   onChange?: (event: any) => void;
+   onBlur?: (event: any) => void;
    isEmpty?: (value: string) => boolean;
+
+   rounded?: boolean;
 }
 
-const Input = ( props: Props ) => {
-   const onChange = (e: any) => {  
-      props.setValue(e.target.value)
-   }
-
+const Input = ( {rounded = true, ...props}: Props ) => {
    return (
       <S.Wrapper>
-         <S.Input {...props} onChange={onChange} max={props.max} min={props.min} />
+         <S.Input {...props} rounded={rounded} max={props.max} min={props.min} />
          { props.error &&
             <S.Error>
                <S.ErrorIcon />
