@@ -1,5 +1,5 @@
 import * as S from './styles'
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 
 type Option = {
    name: string;
@@ -16,7 +16,7 @@ interface Props {
 
 const Select = (props: Props) => {
    const [opened, setOpened] = useState(false)
-   const [selectedName, setSelectedName] = useState()
+   const [selectedName, setSelectedName] = useState<string | null>()
 
    const open = () => setOpened(!opened)
    const close = () => setOpened(false)
@@ -26,6 +26,10 @@ const Select = (props: Props) => {
       setSelectedName(e.target.textContent)
    }
 
+   useEffect(() => {
+      if(props.value === '')
+         setSelectedName(null)
+   }, [props.value]) 
 
    const renderOptions = (options: Option[]) => (
       options.map( option => (
