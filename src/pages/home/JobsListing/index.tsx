@@ -7,22 +7,17 @@ interface Props {
    jobsList: Job[];
 }
 
-const JobsListing = ({jobsList}: Props) => {
-
-   jobsList.sort( (a, b) => {
-      const prevDate = new Date(a.start).getTime()
-      const currDate = new Date(b.start).getTime()
-   
-      return prevDate - currDate
-   })
-
+const JobsListing = ({jobsList}: Props) => {   
    const renderJobs = () => (
-      jobsList.map( (job, index) => (
-         <S.JobsItem key={index} >
-            <S.Legend variant={getJobStatus(job.start)} />
-            { getScheduleJob(job.start, job.end) }
-         </S.JobsItem>
-      ))
+      jobsList.map( (job, index) => {
+         if(new Date(job.end).getFullYear() === new Date().getFullYear())
+            return(
+               <S.JobsItem key={index} >
+                  <S.Legend variant={getJobStatus(job.start)} />
+                  { getScheduleJob(job.start, job.end) }
+               </S.JobsItem>
+            )
+      })
    )
 
    return (
