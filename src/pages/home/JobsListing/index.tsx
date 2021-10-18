@@ -7,6 +7,14 @@ interface Props {
 }
 
 const JobsListing = ({jobsList}: Props) => {   
+
+   jobsList.sort( (a, b) => {
+      const prevDate = new Date(a.start).getTime()
+      const currDate = new Date(b.start).getTime()
+
+      return prevDate - currDate
+   })
+
    const renderJobs = () => (
       jobsList.map( (job, index) => {
          if(new Date(job.end).getFullYear() === new Date().getFullYear())
